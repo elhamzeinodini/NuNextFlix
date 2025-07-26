@@ -1,0 +1,63 @@
+:root {
+  --clr-section-bg: #ffffff;
+  --clr-main-bg-light: #fafafb;
+  --clr-main-bg: #f2f2f4;
+  --clr-tertiary-bg: #e5e5e8;
+  --clr-fourthly-bg: #fafcff;
+  --clr-text-primary: #0e0d2a;
+  --clr-text-secondary: #80808f;
+  --clr-border: #e5e5e8;
+  --clr-border-active: #8c8c9a;
+  --clr-disable: #ccccd2;
+  --clr-on-disable: #80808f;
+  --clr-skeleton: #ccccd2;
+  --clr-shadow-color: #01001f19; // has 10% opacity
+  --clr-image-opacity: #01001f7f; // has 50% opacity
+  --clr-on-image-primary: #ffffff;
+  --clr-on-image-secondary: #d9d9de;
+
+  // primary
+  --clr-primary: #1951fa;
+  --clr-primary-dark: #1441ce;
+  --clr-primary-light: #4774fb;
+  --clr-on-primary: #ffffff;
+  --clr-primary-bg: #d1dcfe;
+
+  //   secondary
+  --clr-secondary: #fa8070;
+  --clr-secondary-dark: #cd6b5f;
+  --clr-secondary-light: #fb998d;
+  --clr-on-secondary: #ffffff;
+  --clr-secondary-bg: #fee6e2;
+
+  // success
+  --clr-success: #388e3c;
+  --clr-success-dark: #2d7236;
+  --clr-success-light: #60a563;
+  --clr-on-success: #ffffff;
+  --clr-success-bg: #d7e8d8;
+
+  // info
+  --clr-info: #1976d2;
+  --clr-info-dark: #145eae;
+  --clr-info-light: #4791db;
+  --clr-on-info: #ffffff;
+  --clr-info-bg: #d1e4f6;
+
+  // warning
+  --clr-warning: #ffa000;
+  --clr-warning-dark: #cc8006;
+  --clr-warning-light: #ffb333;
+  --clr-on-warning: #ffffff;
+  --clr-warning-bg: #ffeccc;
+
+  // danger
+  --clr-danger: #d32f2f;
+  --clr-danger-dark: #a9262c;
+  --clr-danger-light: #dc5959;
+  --clr-on-danger: #ffffff;
+  --clr-danger-bg: #f6d5d5;
+
+  // font multiplier
+  --font-size-multiplier: 1;
+}
