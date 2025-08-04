@@ -1,11 +1,19 @@
 <template>
-  <div class="flex">
-    <div v-for="option in options" :key="option.content">
-      <TheTooltip :option="option">
-        <template #trigger>
-          <button>{{ option.trigger }}</button>
-        </template>
-      </TheTooltip>
+  <div class="relative flex items-center justify-center h-dvh">
+    <div class="relative border border-border rounded-sm w-[500px] h-[250px] m-auto">
+      <div 
+        v-for="option in options"
+        :key="option.content"
+        :class="option.placement"
+      >
+        <TheTooltip :option="option">
+          <template #trigger>
+            <button class="z-10 font-normal border border-border py-[0.3rem] px-[0.6rem] text-sm text-text-primary rounded-sm hover:bg-primary-bg hover:text-primary hover:border-primary transition duration-300 ease-in-out">
+              {{ option.trigger }}
+            </button>
+          </template>
+        </TheTooltip>
+      </div>
     </div>
   </div>
 </template>
@@ -13,34 +21,91 @@
 <script setup lang="ts">
 import type { TooltipOptions } from '~/typescript/app';
 
+/// ///////////////////////////////////////////////////////////////////////////////////////// static
 const options: TooltipOptions[] = [
   {
-    content: 'top tooltip',
-    placement: 'top',
+    content: 'top left prompt info',
+    placement: 'absolute top-[2rem] left-[9rem]',
     effect: 'dark',
-    trigger: 'top',
+    trigger: 'top-start',
     id: 1
   },
   {
-    content: 'right tooltip',
-    placement: 'right',
+    content: 'top center prompt info',
+    placement: 'absolute top-[2rem] left-[14rem]',
     effect: 'dark',
-    trigger: 'right',
+    trigger: 'top',
     id: 2
   },
   {
-    content: 'bottom tooltip',
-    placement: 'bottom',
+    content: 'top right prompt info',
+    placement: 'absolute top-[2rem] left-[17rem]',
     effect: 'dark',
-    trigger: 'bottom',
+    trigger: 'top-end',
     id: 3
   },
   {
-    content: 'left tooltip',
-    placement: 'left',
+    content: 'right top prompt info',
+    placement: 'absolute right-[2rem] top-[4rem]',
+    effect: 'dark',
+    trigger: 'right-start',
+    id: 4
+  },
+  {
+    content: 'right center prompt info',
+    placement: 'absolute right-[2rem] top-[6.5rem]',
+    effect: 'dark',
+    trigger: 'right',
+    id: 5
+  },
+  {
+    content: 'right bottom prompt info',
+    placement: 'absolute right-[2rem] top-[9rem]',
+    effect: 'dark',
+    trigger: 'right-end',
+    id: 6
+  },
+  {
+    content: 'bottom left prompt info',
+    placement: 'absolute bottom-[1.5rem] left-[7rem]',
+    effect: 'dark',
+    trigger: 'bottom-start',
+    id: 7
+  },
+  {
+    content: 'bottom center prompt info',
+    placement: 'absolute bottom-[1.5rem] left-[13.5rem]',
+    effect: 'dark',
+    trigger: 'bottom',
+    id: 8
+  },
+  {
+    content: 'bottom right prompt info',
+    placement: 'absolute bottom-[1.5rem] left-[18rem]',
+    effect: 'dark',
+    trigger: 'bottom-end',
+    id: 9
+  },
+  {
+    content: 'left top prompt info',
+    placement: 'absolute left-[2rem] top-[4rem]',
+    effect: 'dark',
+    trigger: 'left-start',
+    id: 10
+  },
+  {
+    content: 'left center prompt info',
+    placement: 'absolute left-[2rem] top-[6.5rem]',
     effect: 'dark',
     trigger: 'left',
-    id: 4
+    id: 11
+  },
+  {
+    content: 'left bottom prompt info',
+    placement: 'absolute left-[2rem] top-[9rem]',
+    effect: 'dark',
+    trigger: 'left-end',
+    id: 12
   }
 ]
 </script>
