@@ -1,15 +1,30 @@
 <template>
-  <div class="relative flex items-center justify-center h-dvh">
-    <div class="relative border border-border rounded-sm w-[500px] h-[250px] m-auto">
+  <div class="flex items-center justify-center flex-col h-dvh">
+    <div class="relative border border-border rounded-sm w-[500px] h-[250px] mx-auto">
       <div 
-        v-for="option in options"
-        :key="option.content"
-        :class="option.placement"
+        v-for="tooltip in tooltips"
+        :key="tooltip.content"
+        :class="tooltip.placement"
       >
-        <TheTooltip :option="option">
+        <TheTooltip :option="tooltip">
           <template #trigger>
             <button class="z-10 font-normal border border-border py-[0.3rem] px-[0.6rem] text-sm text-text-primary rounded-sm hover:bg-primary-bg hover:text-primary hover:border-primary transition duration-300 ease-in-out">
-              {{ option.trigger }}
+              {{ tooltip.trigger }}
+            </button>
+          </template>
+        </TheTooltip>
+      </div>
+    </div>
+
+    <div class="mt-[2rem] flex items-center gap-[0.5rem] border border-border rounded-sm w-[500px] p-[1rem] mx-auto">
+      <div 
+        v-for="tooltip in customTooltips"
+        :key="tooltip.id"
+      >
+        <TheTooltip :option="tooltip">
+          <template #trigger>
+            <button class="z-10 font-normal border border-border py-[0.3rem] px-[0.6rem] text-sm text-text-primary rounded-sm hover:bg-primary-bg hover:text-primary hover:border-primary transition duration-300 ease-in-out">
+              {{ tooltip.content }}
             </button>
           </template>
         </TheTooltip>
@@ -22,7 +37,7 @@
 import type { TooltipOptions } from '~/typescript/app';
 
 /// ///////////////////////////////////////////////////////////////////////////////////////// static
-const options: TooltipOptions[] = [
+const tooltips: TooltipOptions[] = [
   {
     content: 'top left prompt info',
     placement: 'absolute top-[2rem] left-[9rem]',
@@ -106,6 +121,21 @@ const options: TooltipOptions[] = [
     effect: 'dark',
     trigger: 'left-end',
     id: 12
+  }
+]
+
+const customTooltips: TooltipOptions[] = [
+  {
+    id: 1,
+    content: 'Dark',
+    trigger: 'bottom',
+    effect: 'dark'
+  },
+  {
+    id: 2,
+    content: 'Light',
+    trigger: 'top',
+    effect: 'light'
   }
 ]
 </script>

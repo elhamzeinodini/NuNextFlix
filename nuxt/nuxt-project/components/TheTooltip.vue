@@ -2,6 +2,7 @@
   <div 
     @mouseover="showTooltipContent = true"
     @mouseleave="showTooltipContent = false"
+    class="tooltip relative"
   >
     <div class="trigger">
       <slot name="trigger" />
@@ -10,9 +11,9 @@
     <div 
       v-if="showTooltipContent"
       role="tooltip"
-      :class="['z-30 absolute text-sm p-[0.3rem] w-[10rem] text-center rounded-sm', getPlacement(option.trigger), props.option.effect === 'dark' ? 'bg-text-primary text-on-primary' : 'text-primary bg-on-primary']"
+      :class="['z-30 absolute text-sm p-[0.3rem] w-[10rem] text-center rounded-sm', tooltipPlacement, theme]"
     >
-      <div :class="['w-0 h-0', getArrow(option.trigger), getArrowPlacement(option.trigger), props.option.effect === 'dark' ? 'border-text-primary' : 'border-on-primary']" />
+      <div :class="['w-0 h-0', arrow, arrowPlacement, effect]" />
 
       <span>{{ option.content }}</span>
     </div>
@@ -20,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TooltipOptions, TooltipPlacement } from '~/typescript/app';
+import type { TooltipOptions } from '~/typescript/app';
 
 /// ///////////////////////////////////////////////////////////////////////////////////////// prop
 const props = defineProps<{
@@ -30,9 +31,33 @@ const props = defineProps<{
 /// ///////////////////////////////////////////////////////////////////////////////////////// states
 const showTooltipContent = ref(false)
 
+/// ///////////////////////////////////////////////////////////////////////////////////////// computed
+const effect = computed(() => {
+  const effectMap = {
+    'dark': 'border-text-primary',
+    'light': 'border-skeleton shadow-lg'
+  }
 
-/// ///////////////////////////////////////////////////////////////////////////////////////// methods
-const getArrowPlacement = (placement: TooltipPlacement) => {
+  return effectMap[props.option.effect] ?? ''
+})
+
+const arrow = computed(() => {
+  const trigger = props.option?.trigger
+
+  const topArrow = 'border-l-6 border-r-6 border-t-6 border-l-transparent border-r-transparent'
+  const bottomArrow = 'border-l-6 border-l-transparent border-r-6 border-r-transparent border-b-6'
+  const rightArrow = 'border-t-6 border-b-6 border-r-6 border-t-transparent border-b-transparent'
+  const leftArrow = 'border-t-6 border-b-6 border-l-6 border-t-transparent border-b-transparent'
+
+  if (trigger.includes('top')) return topArrow
+  else if (trigger.includes('right')) return rightArrow
+  else if (trigger.includes('bottom')) return bottomArrow
+  else return leftArrow
+})
+
+const arrowPlacement = computed(() => {
+  const trigger = props.option?.trigger
+    
   const positionMap = {
     top: 'absolute top-[1.8rem] left-[40%]',
     'top-end': 'absolute top-[1.8rem] left-[60%]',
@@ -48,11 +73,12 @@ const getArrowPlacement = (placement: TooltipPlacement) => {
     'left-start': 'absolute left-[10rem] top-[0.3rem]',
   }
 
-  return positionMap[placement] ?? ''
-}
+  return positionMap[trigger] ?? ''
+})
 
+const tooltipPlacement = computed(() => {
+  const placement = props.option.trigger
 
-const getPlacement = (placement: TooltipPlacement) => {
   const positionMap = {
     top: 'absolute -top-[2.4rem] left-[-3rem]',
     'top-end': 'absolute -top-[2.4rem] left-[-3rem]',
@@ -69,17 +95,14 @@ const getPlacement = (placement: TooltipPlacement) => {
   }
 
   return positionMap[placement] ?? ''
-}
+})
 
-const getArrow = (placement: TooltipPlacement) => {
-  const topArrow = 'border-l-6 border-r-6 border-t-6 border-l-transparent border-r-transparent'
-  const bottomArrow = 'border-l-6 border-l-transparent border-r-6 border-r-transparent border-b-6'
-  const rightArrow = 'border-t-6 border-b-6 border-r-6 border-t-transparent border-b-transparent'
-  const leftArrow = 'border-t-6 border-b-6 border-l-6 border-t-transparent border-b-transparent'
+const theme = computed(() => {
+  const themeMap = {
+    'dark': 'bg-text-primary text-on-primary',
+    'light': 'text-text-primary bg-skeleton shadow-lg'
+  }
 
-  if (placement.includes('top')) return topArrow
-  else if (placement.includes('right')) return rightArrow
-  else if (placement.includes('bottom')) return bottomArrow
-  else return leftArrow
-}
+  return themeMap[props.option.effect] ?? ''
+})
 </script>

@@ -12,10 +12,12 @@ export type TooltipPlacement =
     'left-start' |
     'left-end' 
 
+export type TooltipEffect = 'dark' | 'light' 
+
 export interface TooltipOptions {
     content: string
-    placement: string
-    effect: 'dark' | 'light'
+    placement?: string
+    effect: TooltipEffect
     trigger: TooltipPlacement
     id: number
 }

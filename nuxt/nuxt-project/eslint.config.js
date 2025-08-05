@@ -13,6 +13,7 @@ export default [
       globals: {
         defineNuxtConfig: "readonly",
         ref: "readonly",
+        computed: "readonly"
       },
     },
   },
