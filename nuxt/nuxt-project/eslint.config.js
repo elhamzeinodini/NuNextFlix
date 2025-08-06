@@ -12,8 +12,9 @@ export default [
     languageOptions: {
       globals: {
         defineNuxtConfig: "readonly",
+        defineNuxtPlugin: "readonly",
         ref: "readonly",
-        computed: "readonly"
+        computed: "readonly",
       },
     },
   },
