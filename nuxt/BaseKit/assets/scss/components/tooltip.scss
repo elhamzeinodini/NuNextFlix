@@ -1,0 +1,11 @@
+.tooltip {
+  .trigger {
+    position: relative;
+    z-index: 50;
+  }
+
+  .item {
+    position: absolute;
+    z-index: 100;
+  }
+}

@@ -1,0 +1,37 @@
+aside {
+  width: $sidebarWidth;
+  min-height: 100vh;
+  border-right: 1px solid $clr-border;
+  overflow: auto;
+  padding: $gap-xl $gap-lg;
+
+  .section {
+    h2 {
+      font-size: $font-size-md;
+    }
+
+    ul {
+      margin-top: $gap-xs;
+
+      li {
+        font-size: $font-size-sm;
+        padding: 5px;
+
+        &.active {
+          background-color: $clr-primary-bg;
+          border-radius: $small-border-radius;
+        }
+
+        a,
+        &.active {
+          &.router-link-active.router-link-exact-active {
+            span {
+              color: $clr-primary !important;
+              font-weight: $font-weight-bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}

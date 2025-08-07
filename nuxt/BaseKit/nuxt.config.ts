@@ -8,12 +8,13 @@ export default defineNuxtConfig({
     },
   ],
 
-  css: ['~/assets/css/main.css', '~/assets/css/variables.css'],
-
-  postcss: {
-    plugins: {
-      '@tailwindcss/postcss': {},
-      autoprefixer: {},
-    },
-  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "~/assets/scss/app/variables.scss";`,
+        }
+      }
+    }
+  }
 })

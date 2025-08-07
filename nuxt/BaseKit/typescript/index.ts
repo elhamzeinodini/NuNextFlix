@@ -1,3 +1,18 @@
+/* --------------------------------- sidebar -------------------------------- */
+
+interface ISidebarItemsChildren {
+    id: number
+    name: string
+    link: string
+}
+
+export interface ISidebarItems {
+    id: number
+    parent: string
+    children: ISidebarItemsChildren[]
+}
+
+/* --------------------------------- tooltip -------------------------------- */
 export type TooltipPlacement =
     'top' |
     'top-start' |
@@ -16,8 +31,8 @@ export type TooltipEffect = 'dark' | 'light'
 
 export interface TooltipOptions {
     content: string
-    placement?: string
     effect: TooltipEffect
     trigger: TooltipPlacement
     id: number
 }
+

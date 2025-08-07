@@ -1,0 +1,9 @@
+.default-layout {
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+
+  .main-content {
+    width: calc(100% - $sidebarWidth);
+  }
+}
