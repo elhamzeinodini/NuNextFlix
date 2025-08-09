@@ -16,29 +16,8 @@ body {
   margin: 0;
 }
 
-p,
-b,
-a,
-div {
-  text-decoration: none;
-  line-height: 1.3em;
-  color: $clr-text-primary;
-}
-
-span {
-  color: $clr-text-secondary;
-}
-
-b {
-  color: $clr-text-primary;
-}
-
-p {
-  color: $clr-text-secondary;
-}
-
 a {
-  color: $clr-text-secondary;
+  text-decoration: none;
 }
 
 h1,

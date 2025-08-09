@@ -1,11 +1,194 @@
 .tooltip {
+  $border_size: 6px;
+
+  $themes: (
+    dark: (
+      tooltip-bg: $clr-dark,
+      tooltip-text: $clr-light,
+      tooltip-arrow-bg: $clr-dark,
+      tooltip-box-shadow: none,
+    ),
+    light: (
+      tooltip-bg: $clr-tertiary-bg,
+      tooltip-text: $clr-text-primary,
+      tooltip-arrow-bg: $clr-tertiary-bg,
+      tooltip-box-shadow: $default-box-shadow,
+    ),
+  );
+
+  @mixin apply-theme($theme) {
+    $theme-map: map-get($themes, $theme);
+
+    background-color: map-get($map: $theme-map, $key: tooltip-bg);
+    color: map-get($map: $theme-map, $key: tooltip-text);
+    box-shadow: map-get($map: $theme-map, $key: tooltip-box-shadow);
+
+    .triangle {
+      // tops
+      &.top,
+      &.top-start,
+      &.top-end {
+        border-top: $border_size solid
+          map-get($map: $theme-map, $key: tooltip-arrow-bg);
+      }
+
+      // right
+      &.right,
+      &.right-start,
+      &.right-end {
+        border-right: $border_size solid
+          map-get($map: $theme-map, $key: tooltip-arrow-bg);
+      }
+
+      // bottom
+      &.bottom,
+      &.bottom-start,
+      &.bottom-end {
+        border-bottom: $border_size solid
+          map-get($map: $theme-map, $key: tooltip-arrow-bg);
+      }
+
+      // left
+      &.left,
+      &.left-start,
+      &.left-end {
+        border-left: $border_size solid
+          map-get($map: $theme-map, $key: tooltip-arrow-bg);
+      }
+    }
+  }
+
+  position: relative;
+
   .trigger {
-    position: relative;
     z-index: 50;
   }
 
-  .item {
+  .wrapper {
+    width: 8rem;
     position: absolute;
-    z-index: 100;
+
+    // variables
+    $top_offset: -2.2rem;
+    $left_offset: 6.5rem;
+    $right_offset: -9.3rem;
+
+    // tooltip placement
+    &.top {
+      inset: $top_offset 0 auto 50%;
+      transform: translateX(-50%);
+    }
+
+    &.top-end {
+      inset: $top_offset auto auto 1rem;
+    }
+
+    &.top-start {
+      inset: $top_offset 1rem auto auto;
+    }
+
+    // right
+    &.right {
+      inset: 50% auto auto $left_offset;
+      transform: translateY(-50%);
+    }
+
+    &.right-end {
+      inset: 30% auto auto $left_offset;
+    }
+
+    &.right-start {
+      inset: -0.5rem auto auto $left_offset;
+    }
+
+    // bottom
+    &.bottom {
+      inset: -$top_offset auto auto 50%;
+      transform: translateX(-50%);
+    }
+
+    &.bottom-end {
+      inset: -$top_offset auto auto 1rem;
+    }
+
+    &.bottom-start {
+      inset: -$top_offset auto auto -3rem;
+    }
+
+    // left
+    &.left {
+      inset: 0 auto auto $right_offset;
+    }
+
+    &.left-end {
+      inset: 0.5rem auto auto $right_offset;
+    }
+
+    &.left-start {
+      inset: -0.5rem auto auto $right_offset;
+    }
+
+    .item {
+      z-index: 100;
+      width: 100%;
+      text-align: center;
+      padding: 5px;
+      border-radius: $small-border-radius;
+      position: relative;
+
+      @each $theme-name, $theme-values in $themes {
+        &.#{$theme-name} {
+          @include apply-theme($theme-name);
+        }
+      }
+
+      // arrow
+      .triangle {
+        width: 0;
+        height: 0;
+        position: absolute;
+
+        // tops
+        &.top,
+        &.top-start,
+        &.top-end {
+          border-left: $border_size solid transparent;
+          border-right: $border_size solid transparent;
+          inset: auto 50% -0.4rem auto;
+        }
+
+        // right
+        &.right,
+        &.right-start,
+        &.right-end {
+          border-top: $border_size solid transparent;
+          border-bottom: $border_size solid transparent;
+          inset: 0.4rem auto auto -0.4rem;
+        }
+
+        // bottom
+        &.bottom,
+        &.bottom-start,
+        &.bottom-end {
+          border-left: $border_size solid transparent;
+          border-right: $border_size solid transparent;
+          inset: -0.3rem auto auto 40%;
+        }
+
+        // left
+        &.left,
+        &.left-start,
+        &.left-end {
+          border-top: $border_size solid transparent;
+          border-bottom: $border_size solid transparent;
+          inset: 25% auto auto 8.6rem;
+        }
+      }
+
+      span {
+        display: block;
+        font-size: $font-size-sm;
+      }
+    }
   }
 }

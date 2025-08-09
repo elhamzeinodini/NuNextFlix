@@ -14,7 +14,7 @@
       <div class="bottom">
         <TheTooltip v-for="tooltip in customTooltips" :key="tooltip.id" :option="tooltip">
           <template #trigger>
-            <button class="">
+            <button>
               {{ tooltip.content }}
             </button>
           </template>

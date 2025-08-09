@@ -1,20 +1,21 @@
 // colors
-$clr-section-bg: #ffffff;
+$clr-light: #ffffff;
+$clr-dark: #0e0d2a;
+
 $clr-main-bg-light: #fafafb;
 $clr-main-bg: #f2f2f4;
+
 $clr-tertiary-bg: #e5e5e8;
 $clr-fourthly-bg: #fafcff;
+
 $clr-text-primary: #0e0d2a;
 $clr-text-secondary: #80808f;
+
 $clr-border: #e5e5e8;
 $clr-border-active: #8c8c9a;
+
 $clr-disable: #ccccd2;
 $clr-on-disable: #80808f;
-$clr-skeleton: #ccccd2;
-$clr-shadow-color: #01001f19;
-$clr-image-opacity: #01001f7f;
-$clr-on-image-primary: #ffffff;
-$clr-on-image-secondary: #d9d9de;
 
 // primary
 $clr-primary: #1951fa;
@@ -110,7 +111,6 @@ $default-font-bold: "Inter-Medium";
 $default-font-black: "Inter-Black";
 $default-font-bold: "Inter-Bold";
 $default-font-semiBold: "Inter-SemiBold";
-
 
 // sidebar
 $sidebarWidth: 150px;
