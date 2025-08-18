@@ -7,6 +7,7 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
 }
 
 *,
@@ -61,4 +62,20 @@ li {
   margin: 0;
   padding: 0;
   color: $clr-text-primary;
+}
+
+.btn {
+  width: 6rem;
+  background-color: transparent !important;
+  color: $clr-text-primary !important;
+  border: 1px solid $clr-border;
+  padding: 0.3rem 0.5rem;
+  border-radius: $medium-border-radius;
+  cursor: pointer;
+}
+
+button {
+  outline: none;
+  background-color: transparent;
+  border: none;
 }

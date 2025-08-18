@@ -10,6 +10,11 @@ export const sidebarItems: ISidebarItems[] = [
         name: "Tooltip",
         link: "tooltip",
       },
+      {
+        id: 12,
+        name: "Notification",
+        link: "notification",
+      },
     ],
   },
 ];

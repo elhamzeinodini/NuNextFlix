@@ -1,0 +1,40 @@
+.notification {
+  width: 17rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  box-shadow: $default-box-shadow;
+  border-radius: $medium-border-radius;
+  padding: $gap-lg;
+  background-color: #fff;
+  z-index: 900;
+  opacity: 0;
+
+  &.top-right {
+    position: absolute;
+    inset: 2rem 1rem auto auto;
+  }
+
+  &.top-left {
+    position: absolute;
+    inset: 2rem auto auto 1rem;
+  }
+
+  &.bottom-right {
+    position: absolute;
+    inset: auto 1rem 2rem auto;
+  }
+
+  &.bottom-left {
+    position: absolute;
+    inset: auto auto 2rem 1rem;
+  }
+
+  button {
+    .icon-square-x {
+      font-size: $font-size-xl;
+      color: $clr-danger;
+      cursor: pointer;
+    }
+  }
+}

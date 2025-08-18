@@ -97,7 +97,8 @@ $mobile-sm-breakpoint: 420px;
 $mobile-xs-breakpoint: 360px;
 
 // box shadow
-$default-box-shadow: 0 0 35px var(--clr-shadow-color);
+$default-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 $default-border: 1px solid $clr-border;
 
 // border radius

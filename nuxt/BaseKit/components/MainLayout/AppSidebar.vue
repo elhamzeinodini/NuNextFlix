@@ -27,6 +27,6 @@ const route = useRoute()
 import { sidebarItems } from '~/assets/statics/app';
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '/assets/scss/components/sidebar.scss';
 </style>

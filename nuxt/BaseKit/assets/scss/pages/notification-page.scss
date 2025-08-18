@@ -1,0 +1,56 @@
+.notification-page {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .card {
+    &:nth-child(1) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: $gap-sm;
+    }
+
+    &:nth-child(2) {
+      margin-top: $gap-sm;
+
+      &.auto-close {
+        width: 26rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+          width: 10rem;
+        }
+      }
+    }
+
+    .notify {
+      .top {
+        display: flex;
+        align-items: center;
+
+        i {
+          color: $clr-primary;
+          display: inline-block;
+          font-size: $font-size-xl;
+        }
+
+        .title {
+          margin-left: 5px;
+          font-size: $font-size-xl;
+        }
+      }
+
+      .subtitle {
+        display: block;
+        font-size: $font-size-md;
+        line-height: 1.2rem;
+        margin-top: $gap-sm;
+        color: $clr-text-secondary;
+      }
+    }
+  }
+}
