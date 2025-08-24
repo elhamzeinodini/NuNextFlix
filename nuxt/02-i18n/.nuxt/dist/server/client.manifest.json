@@ -1,0 +1,18 @@
+{
+  "@vite/client": {
+    "prefetch": true,
+    "isEntry": true,
+    "file": "@vite/client",
+    "css": [],
+    "module": true,
+    "resourceType": "script"
+  },
+  "/home/eli/Documents/github/NuNextFlix/nuxt/02-i18n/node_modules/nuxt/dist/app/entry.js": {
+    "resourceType": "script",
+    "module": true,
+    "prefetch": true,
+    "preload": true,
+    "isEntry": true,
+    "file": "/home/eli/Documents/github/NuNextFlix/nuxt/02-i18n/node_modules/nuxt/dist/app/entry.js"
+  }
+}
