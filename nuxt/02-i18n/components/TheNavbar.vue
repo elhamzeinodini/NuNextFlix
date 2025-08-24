@@ -1,15 +1,15 @@
 <template>
-  <ClientOnly>
-    <nav>
-      <img src="/public/logo.svg" alt="logo" />
+  <nav>
+    <img src="/logo.svg" alt="logo" />
 
-      <select v-model="langCode">
-        <option v-for="lang in langs" :key="lang.id" :value="lang.code">
-          {{ lang.name }}
-        </option>
-      </select>
-    </nav>
-  </ClientOnly>
+    <div>{{ i18n.locale.value }}</div>
+
+    <select v-model="i18n.locale.value">
+      <option v-for="lang in langs" :key="lang.id" :value="lang.code">
+        {{ lang.name }}
+      </option>
+    </select>
+  </nav>
 </template>
 
 <script setup lang="ts">
@@ -36,26 +36,19 @@ const langs = computed(() => {
   ] as Lang[];
 });
 
-/// ////////////////////////////////////////////////////////////////////////////////////////////////// states
-const langCode = ref("en");
-
 /// ////////////////////////////////////////////////////////////////////////////////////////////////// methods
-const handleSwitchLang = (langCode: string) => {
-  i18n.locale.value = langCode;
-
+const handleSwitchLang = () => {
   const cookieLocale = useCookie(config.public.i18nLocal);
   cookieLocale.value = i18n.locale.value;
 };
 
 /// ////////////////////////////////////////////////////////////////////////////////////////////////// watcher
-watch(langCode, (newVal) => {
-  if (newVal) handleSwitchLang(newVal);
-});
-
-/// ////////////////////////////////////////////////////////////////////////////////////////////////// hooks
-onMounted(() => {
-  langCode.value = i18n.locale.value;
-});
+watch(
+  () => i18n.locale.value,
+  (newVal) => {
+    if (newVal) handleSwitchLang();
+  }
+);
 </script>
 
 <style lang="scss">
